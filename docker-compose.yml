@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+
+  lab:
+    build: .
+    ports:
+      - "28888:8888"
+    environment:
+      - SHELL=/bin/bash
+    volumes:
+      - ./notebooks:/opt/notebooks
+    working_dir: /opt/notebooks
+    command: jupyter lab --notebook-dir=/opt/notebooks --no-browser --port=8888 --ip=0.0.0.0 --allow-root --ServerApp.token=''
